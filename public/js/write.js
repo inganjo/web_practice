@@ -1,3 +1,4 @@
+const writeFrm=document.querySelector("#writeFrm");
 class Board {
     constructor(indexNum,subjectStr,writerStr,contentStr){
         this.index=indexNum;
@@ -20,8 +21,16 @@ class Board {
         this.content=value;
     }
 }
-const writeFrm=document.querySelector("#writeFrm");
-console.log(writeFrm);
+const recordDate=()=>{
+    const date=new Date();
+    const yyyy=date.getFullYear();
+    let mm=date.getMonth()+1;
+    let dd=date.getDate();
+    mm=(mm>9?"":"0")+mm;
+    dd=(dd>9?"":"0")+dd;
+    const arr=[yyyy,mm,dd];
+    return arr.join("-");
+}
 
 const submitHandler=(e)=>{
     e.preventDefault();
@@ -38,21 +47,10 @@ const submitHandler=(e)=>{
 
         const boardsStr=JSON.stringify(boardsObj);
         localStorage.setItem("boards",boardsStr);
-        location.href="/board/view.html?index="+index;
+        location.href="/board/view.html?number="+index;
     } catch(e){
         alert(e.message);
         console.error(e);
     }
 };
 writeFrm.addEventListener("submit",submitHandler);
-
-const recordDate=()=>{
-    const date=new Date();
-    const yyyy=date.getFullYear();
-    let mm=date.getMonth()+1;
-    let dd=date.getDate();
-    mm=(mm>9?"":"0")+mm;
-    dd=(dd>9?"":"0")+dd;
-    const arr=[yyyy,mm,dd];
-    return arr.join("-");
-}

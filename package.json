@@ -1,9 +1,9 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "",
   "main": "call_timer.js",
   "scripts": {
+    "dev": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
-  }
+    "express": "^4.19.2",
+    "parcel-bundler": "^1.12.5"
+  },
+  "description": ""
 }
