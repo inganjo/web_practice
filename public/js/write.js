@@ -47,7 +47,7 @@ const submitHandler=(e)=>{
 
         const boardsStr=JSON.stringify(boardsObj);
         localStorage.setItem("boards",boardsStr);
-        location.href="/board/view.html?number="+index;
+        location.href="./view.html?index="+index;
     } catch(e){
         alert(e.message);
         console.error(e);
